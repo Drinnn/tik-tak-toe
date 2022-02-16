@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { io } from 'socket.io-client';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -10,6 +12,14 @@ const AppContainer = styled.div`
 `;
 
 function App() {
+  const connect = () => {
+    const socket = io('http://localhost:3333');
+  };
+
+  useEffect(() => {
+    connect();
+  }, []);
+
   return (
     <AppContainer>
       <h1>Welcome to Tik-Tak-Toe</h1>
