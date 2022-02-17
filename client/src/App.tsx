@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+
+import socketService from './services/socket';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -23,6 +26,18 @@ const MainContainer = styled.div`
 `;
 
 function App() {
+  const connectToSocket = async () => {
+    const socket = await socketService
+      .connect('http://localhost:3333')
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    connectToSocket();
+  }, []);
+
   return (
     <AppContainer>
       <WelcomeText>Welcome to Tik-Tak-Toe</WelcomeText>
