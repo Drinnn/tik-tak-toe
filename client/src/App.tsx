@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import JoinRoom from './components/joinRoom';
 
 import socketService from './services/socket';
 
@@ -41,7 +42,9 @@ function App() {
   return (
     <AppContainer>
       <WelcomeText>Welcome to Tik-Tak-Toe</WelcomeText>
-      <MainContainer>Hey!</MainContainer>
+      <MainContainer>
+        <JoinRoom />
+      </MainContainer>
     </AppContainer>
   );
 }
